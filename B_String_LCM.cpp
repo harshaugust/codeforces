@@ -15,91 +15,32 @@ void solve() {
     cin >> a >> b;
     int n = a.size();
     int m = b.size();
-    if (n < m) {
-        if (m % n == 0) {
-            for (int i = 0; i < m; i += n) {
-                string s = "";
-                for (int j = i; j < i + n; j++) 
-                    s += b[j];
-                if (s == a) 
-                    continue;
-                else {
-                    cout << -1 << endl;
-                    return;
-                }
-            }
-            cout << b << endl;
-            return;
+    int mn = min(n, m);
+    string c, d, e;
+    int lcm = (n / __gcd(n, m)) * m;
+    
+    for (int i = 0; i < m; i++) {
+        d += a;
+    }
+    
+    for (int i = 0; i < n; i++) 
+        e += b;
+    
+    
+    
+    if (d != e) {
+        cout << -1 << endl;
+        return;
+    }
+    for (int i = 0; i < lcm; i += mn) {
+        if (n < m) {
+            c += a;
         }
         else {
-            int k = m * n;
-            k /= n;
-            string s = "";
-            for (int i = 0; i < k; i++) {
-                s += a;
-            }
-            int i = 0;
-            while (i < s.size()) {
-                int j = i;
-                string t="";
-                for (; j <= i + n; j++) {
-                    t += s[j];
-                }
-                i += j;
-                if (t == b) {
-                    continue;
-                }
-                else {
-                    cout << -1 << endl;
-                }
-            }
-            cout << s << endl;
+            c += b;
         }
     }
-    else {
-        if (n % m == 0) {
-            for (int i = 0; i < n; i += m) {
-                string s = "";
-                for (int j = i; j < i + m; j++) 
-                    s += a[j];
-                if (s == b) 
-                    continue;
-                else {
-                    cout << -1 << endl;
-                    return;
-                }
-            }
-            cout << a << endl;
-            return;
-        }
-        else {
-            int k = m * n;
-            k /= m;
-            string s = "";
-            for (int i = 0; i < k; i++) {
-                s += a;
-            }
-
-            int i = 0;
-            while (i < s.size()) {
-                int j = i;
-                string t="";
-                for (; j <= i + n; j++) {
-                    t += s[j];
-                }
-                i += j;
-                if (t == a) {
-                    continue;
-                }
-                else {
-                    cout << -1 << endl;
-                    return;
-                }
-            }
-            cout << s << endl;
-            return;
-        }
-    }
+    cout << c << endl;
 }
 int32_t main() {
     ios_base::sync_with_stdio(false);
